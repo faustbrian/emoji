@@ -14,7 +14,7 @@ use ReflectionClass;
  */
 enum Emoji: string
 {
-        // Smileys & Emotion
+    // Smileys & Emotion
     case CHARACTER_GRINNING_FACE = "\u{1F600}";
 
     case CHARACTER_GRINNING_FACE_WITH_BIG_EYES = "\u{1F603}";
@@ -347,7 +347,7 @@ enum Emoji: string
 
     case CHARACTER_ZZZ = "\u{1F4A4}";
 
-        // People & Body
+    // People & Body
     case CHARACTER_WAVING_HAND = "\u{1F44B}";
 
     case CHARACTER_WAVING_HAND_LIGHT_SKIN_TONE = "\u{1F44B}\u{1F3FB}";
@@ -4644,7 +4644,7 @@ enum Emoji: string
 
     case CHARACTER_FOOTPRINTS = "\u{1F463}";
 
-        // Animals & Nature
+    // Animals & Nature
     case CHARACTER_MONKEY_FACE = "\u{1F435}";
 
     case CHARACTER_MONKEY = "\u{1F412}";
@@ -4949,7 +4949,7 @@ enum Emoji: string
 
     case CHARACTER_MUSHROOM = "\u{1F344}";
 
-        // Food & Drink
+    // Food & Drink
     case CHARACTER_GRAPES = "\u{1F347}";
 
     case CHARACTER_MELON = "\u{1F348}";
@@ -5216,7 +5216,7 @@ enum Emoji: string
 
     case CHARACTER_AMPHORA = "\u{1F3FA}";
 
-        // Travel & Places
+    // Travel & Places
     case CHARACTER_GLOBE_SHOWING_EUROPE_AFRICA = "\u{1F30D}";
 
     case CHARACTER_GLOBE_SHOWING_AMERICAS = "\u{1F30E}";
@@ -5653,7 +5653,7 @@ enum Emoji: string
 
     case CHARACTER_WATER_WAVE = "\u{1F30A}";
 
-        // Activities
+    // Activities
     case CHARACTER_JACK_O_LANTERN = "\u{1F383}";
 
     case CHARACTER_CHRISTMAS_TREE = "\u{1F384}";
@@ -5824,7 +5824,7 @@ enum Emoji: string
 
     case CHARACTER_KNOT = "\u{1FAA2}";
 
-        // Objects
+    // Objects
     case CHARACTER_GLASSES = "\u{1F453}";
 
     case CHARACTER_SUNGLASSES = "\u{1F576}\u{FE0F}";
@@ -6347,7 +6347,7 @@ enum Emoji: string
 
     case CHARACTER_IDENTIFICATION_CARD = "\u{1FAAA}";
 
-        // Symbols
+    // Symbols
     case CHARACTER_ATM_SIGN = "\u{1F3E7}";
 
     case CHARACTER_LITTER_IN_BIN_SIGN = "\u{1F6AE}";
@@ -6794,7 +6794,7 @@ enum Emoji: string
 
     case CHARACTER_BLACK_SQUARE_BUTTON = "\u{1F532}";
 
-        // Flags
+    // Flags
     case CHARACTER_CHEQUERED_FLAG = "\u{1F3C1}";
 
     case CHARACTER_TRIANGULAR_FLAG = "\u{1F6A9}";
@@ -7392,7 +7392,7 @@ enum Emoji: string
     {
         $countryCode = \mb_strtoupper($countryCode);
 
-        return static::encodeCountryCodeLetter($countryCode[0]) . static::encodeCountryCodeLetter($countryCode[1]);
+        return static::encodeCountryCodeLetter($countryCode[0]).static::encodeCountryCodeLetter($countryCode[1]);
     }
 
     private static function createCaseKey(string $characterName): string
@@ -7402,6 +7402,6 @@ enum Emoji: string
 
     private static function encodeCountryCodeLetter(string $letter): string
     {
-        return \mb_convert_encoding('&#' . (127397 + \ord($letter)) . ';', 'UTF-8', 'HTML-ENTITIES');
+        return \mb_convert_encoding('&#'.(127397 + \ord($letter)).';', 'UTF-8', 'HTML-ENTITIES');
     }
 }
