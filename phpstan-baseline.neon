@@ -1,0 +1,21 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Method BombenProdukt\\\\Emoji\\\\Emoji\\:\\:all\\(\\) should return Illuminate\\\\Support\\\\Collection\\<string, BombenProdukt\\\\Emoji\\\\Emoji\\> but returns Illuminate\\\\Support\\\\Collection\\<string, mixed\\>\\.$#"
+			count: 1
+			path: src/Emoji.php
+
+		-
+			message: "#^Method BombenProdukt\\\\Emoji\\\\Emoji\\:\\:fromString\\(\\) should return BombenProdukt\\\\Emoji\\\\Emoji but returns mixed\\.$#"
+			count: 1
+			path: src/Emoji.php
+
+		-
+			message: "#^Parameter \\#1 \\$callback of method Illuminate\\\\Support\\\\Collection\\<int,int\\>\\:\\:map\\(\\) expects callable\\(int, int\\)\\: string, Closure\\(string\\)\\: string given\\.$#"
+			count: 1
+			path: src/Emoji.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of static method Illuminate\\\\Support\\\\Str\\:\\:of\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/Emoji.php
