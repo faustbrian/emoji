@@ -7338,7 +7338,7 @@ enum Emoji: string
      */
     public static function all(): Collection
     {
-        return new Collection((new ReflectionClass(static::class))->getConstants());
+        return new Collection((new ReflectionClass(self::class))->getConstants());
     }
 
     /**
@@ -7346,7 +7346,7 @@ enum Emoji: string
      */
     public static function keys(): Collection
     {
-        return static::all()->keys();
+        return self::all()->keys();
     }
 
     /**
@@ -7354,7 +7354,7 @@ enum Emoji: string
      */
     public static function values(): Collection
     {
-        return static::all()->values();
+        return self::all()->values();
     }
 
     /**
@@ -7362,7 +7362,7 @@ enum Emoji: string
      */
     public static function dataset(): Collection
     {
-        return static::all()
+        return self::all()
             ->map(fn (self $value, string $key) => [\mb_strtolower(\mb_substr($key, 10)), $value])
             ->values();
     }
@@ -7372,14 +7372,14 @@ enum Emoji: string
      */
     public static function identifiers(): Collection
     {
-        return static::keys()
+        return self::keys()
             ->keys()
             ->map(fn (string $key) => \mb_strtolower(\mb_substr($key, 10)));
     }
 
     public static function fromString(string $characterName): self
     {
-        $caseKey = static::createCaseKey($characterName);
+        $caseKey = self::createCaseKey($characterName);
 
         if (\defined("self::CHARACTER_{$caseKey}")) {
             return \constant("self::CHARACTER_{$caseKey}");
@@ -7392,7 +7392,7 @@ enum Emoji: string
     {
         $countryCode = \mb_strtoupper($countryCode);
 
-        return static::encodeCountryCodeLetter($countryCode[0]).static::encodeCountryCodeLetter($countryCode[1]);
+        return self::encodeCountryCodeLetter($countryCode[0]).self::encodeCountryCodeLetter($countryCode[1]);
     }
 
     private static function createCaseKey(string $characterName): string
