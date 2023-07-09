@@ -4,20 +4,6 @@
     </a>
 </p>
 
-<p align="center">
-    <a href="https://github.com/faustbrian/emoji/actions">
-        <img src="https://badge.sh/github/check-runs/BombenProdukt/emoji" alt="Checks" />
-    </a>
-    <a href="https://packagist.org/packages/bombenprodukt/emoji">
-        <img src="https://badge.sh/packagist/downloads/BombenProdukt/emoji" alt="Downloads" />
-    </a>
-    <a href="https://packagist.org/packages/bombenprodukt/emoji">
-        <img src="https://badge.sh/packagist/version/BombenProdukt/emoji" alt="Version" />
-    </a>
-    <a href="https://packagist.org/packages/bombenprodukt/emoji">
-        <img src="https://badge.sh/packagist/license/BombenProdukt/emoji" alt="License" />
-    </a>
-</p>
 
 ## About Emoji
 
