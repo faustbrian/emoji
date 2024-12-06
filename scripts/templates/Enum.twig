@@ -1,0 +1,95 @@
+<?php
+
+declare(strict_types=1);
+
+namespace BaseCodeOy\Emoji;
+
+use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
+use InvalidArgumentException;
+use ReflectionClass;
+
+/**
+ * @see https://unicode.org/Public/emoji/15.0/emoji-test.txt
+ */
+enum Emoji: string
+{
+{% for group,emojis in groups %}
+    // {{ group }}
+{% for emoji in emojis %}
+    case CHARACTER_{{ emoji.name }} = "{{ emoji.code }}";
+
+{% endfor %}
+{% endfor %}
+    /**
+     * @return Collection<string, self>
+     */
+    public static function all(): Collection
+    {
+        return new Collection((new ReflectionClass(static::class))->getConstants());
+    }
+
+    /**
+     * @return Collection<int, string>
+     */
+    public static function keys(): Collection
+    {
+        return static::all()->keys();
+    }
+
+    /**
+     * @return Collection<int, self>
+     */
+    public static function values(): Collection
+    {
+        return static::all()->values();
+    }
+
+    /**
+     * @return Collection<int, array{string, self}>
+     */
+    public static function dataset(): Collection
+    {
+        return static::all()
+            ->map(fn (self $value, string $key) => [\mb_strtolower(\mb_substr($key, 10)), $value])
+            ->values();
+    }
+
+    /**
+     * @return Collection<int, string>
+     */
+    public static function identifiers(): Collection
+    {
+        return static::keys()
+            ->keys()
+            ->map(fn (string $key) => \mb_strtolower(\mb_substr($key, 10)));
+    }
+
+    public static function fromString(string $characterName): self
+    {
+        $caseKey = static::createCaseKey($characterName);
+
+        if (\defined("self::CHARACTER_{$caseKey}")) {
+            return \constant("self::CHARACTER_{$caseKey}");
+        }
+
+        throw new InvalidArgumentException("Character {$caseKey} does not exist.");
+    }
+
+    public static function countryFlag(string $countryCode): string
+    {
+        $countryCode = \mb_strtoupper($countryCode);
+
+        return static::encodeCountryCodeLetter($countryCode[0]).static::encodeCountryCodeLetter($countryCode[1]);
+    }
+
+    private static function createCaseKey(string $characterName): string
+    {
+        return Str::of(\preg_replace('/[^a-zA-Z0-9_]/', ' ', $characterName))->snake()->upper()->toString();
+    }
+
+    private static function encodeCountryCodeLetter(string $letter): string
+    {
+        return \mb_convert_encoding('&#'.(127397 + \ord($letter)).';', 'UTF-8', 'HTML-ENTITIES');
+    }
+}

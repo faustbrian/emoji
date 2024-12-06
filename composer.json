@@ -1,0 +1,57 @@
+{
+    "name": "basecodeoy/emoji",
+    "description": "A package to easily use Emojis with PHP.",
+    "license": "MIT",
+    "type": "library",
+    "keywords": [
+        "BaseCode Oy",
+        "laravel",
+        "emoji"
+    ],
+    "authors": [
+        {
+            "name": "Brian Faust",
+            "email": "hello@basecode.sh",
+            "role": "Developer"
+        }
+    ],
+    "homepage": "https://github.com/basecodeoy/emoji",
+    "support": {
+        "issues": "https://github.com/basecodeoy/emoji/issues",
+        "source": "https://github.com/basecodeoy/emoji",
+        "security": "https://github.com/basecodeoy/emoji/blob/main/.github/SECURITY.md"
+    },
+    "require": {
+        "php": "^8.3",
+        "ext-mbstring": "*",
+        "basecodeoy/crate": "^1.0.0",
+        "illuminate/support": "^11.0"
+    },
+    "require-dev": {
+        "basecodeoy/standards": "^1.1.1",
+        "twig/twig": "^3.16"
+    },
+    "autoload": {
+        "psr-4": {
+            "BaseCodeOy\\Emoji\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true,
+            "infection/extension-installer": true,
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        },
+        "audit": {
+            "abandoned": "report"
+        },
+        "preferred-install": "dist",
+        "sort-packages": true
+    }
+}

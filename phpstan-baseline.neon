@@ -1,0 +1,36 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Cannot call method in\\(\\) on iterable\\<SplFileInfo\\>\\.$#"
+			count: 1
+			path: .php-cs-fixer.php
+
+		-
+			message: "#^Method BaseCodeOy\\\\Emoji\\\\Emoji\\:\\:all\\(\\) should return Illuminate\\\\Support\\\\Collection\\<string, BaseCodeOy\\\\Emoji\\\\Emoji\\> but returns Illuminate\\\\Support\\\\Collection\\<string, mixed\\>\\.$#"
+			count: 1
+			path: src/Emoji.php
+
+		-
+			message: "#^Method BaseCodeOy\\\\Emoji\\\\Emoji\\:\\:fromString\\(\\) should return BaseCodeOy\\\\Emoji\\\\Emoji but returns mixed\\.$#"
+			count: 1
+			path: src/Emoji.php
+
+		-
+			message: "#^Parameter \\#1 \\$callback of method Illuminate\\\\Support\\\\Collection\\<int,int\\>\\:\\:map\\(\\) expects callable\\(int, int\\)\\: string, Closure\\(string\\)\\: lowercase\\-string given\\.$#"
+			count: 1
+			path: src/Emoji.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of static method Illuminate\\\\Support\\\\Str\\:\\:of\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/Emoji.php
+
+		-
+			message: "#^Undefined variable\\: \\$this$#"
+			count: 1
+			path: tests/Pest.php
+
+		-
+			message: "#^Parameter \\#1 \\.\\.\\.\\$data of method Pest\\\\PendingCalls\\\\TestCall\\:\\:with\\(\\) expects array\\<Closure\\|iterable\\<int\\|string, mixed\\>\\|string\\>\\|Closure\\|string, Illuminate\\\\Support\\\\Collection\\<int, array\\{string, BaseCodeOy\\\\Emoji\\\\Emoji\\}\\> given\\.$#"
+			count: 1
+			path: tests/Unit/EmojiTest.php
