@@ -29,7 +29,7 @@
     },
     "require-dev": {
         "basecodeoy/standards": "^1.1.1",
-        "twig/twig": "^3.16"
+        "twig/twig": "^3.17"
     },
     "autoload": {
         "psr-4": {
